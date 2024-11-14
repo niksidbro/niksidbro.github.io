@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes Page</title>
+
+	<style>
+	/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Navigation Menu */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+.nav button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav button:hover {
+    background-color: #0056b3;
+}
+
+/* Quotes Container */
+.quotes-container {
+    max-width: 600px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.quotes-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+/* Quote Styles */
+.quote {
+    background: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.quote:hover {
+    transform: scale(1.02);
+}
+
+.author {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+</style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="nav">
+        <button onclick="scrollToTop()">Home</button>
+    </div>
+
+    <!-- Quotes Container -->
+    <div class="quotes-container">
+        <h1>Inspirational Quotes</h1>
+        <div id="quotes"></div>
+    </div>
+
+    <script>
+// New Quotes Data
+const quotes = [
+    { text: "In the end, we only regret the chances we didn’t take.", author: "Lewis Carroll" },
+    { text: "What lies behind us and what lies before us are tiny matters compared to what lies within us.", author: "Ralph Waldo Emerson" },
+    { text: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt" },
+    { text: "Difficult roads often lead to beautiful destinations.", author: "Zig Ziglar" },
+    { text: "The only way to achieve the impossible is to believe it is possible.", author: "Charles Kingsleigh" },
+    { text: "Don’t limit your challenges. Challenge your limits.", author: "Jerry Dunn" },
+    { text: "It’s not whether you get knocked down, it’s whether you get up.", author: "Vince Lombardi" },
+    { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+    { text: "Only I can change my life. No one can do it for me.", author: "Carol Burnett" },
+    { text: "You are never too old to set another goal or to dream a new dream.", author: "C.S. Lewis" },
+    { text: "Happiness is not by chance, but by choice.", author: "Jim Rohn" },
+    { text: "You don’t need to see the whole staircase, just take the first step.", author: "Martin Luther King Jr." },
+    { text: "The journey of a thousand miles begins with one step.", author: "Lao Tzu" },
+    { text: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller" },
+    { text: "The best view comes after the hardest climb.", author: "Unknown" },
+    { text: "Success doesn’t come from what you do occasionally. It comes from what you do consistently.", author: "Marie Forleo" },
+    { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+    { text: "If it doesn’t challenge you, it won’t change you.", author: "Fred DeVito" },
+    { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
+    { text: "The harder you fall, the higher you bounce.", author: "Unknown" }
+];
+
+// Display Quotes
+const quotesContainer = document.getElementById('quotes');
+
+function displayQuotes() {
+    quotes.forEach(quote => {
+        const quoteElement = document.createElement('div');
+        quoteElement.classList.add('quote');
+        quoteElement.innerHTML = `
+            <p>"${quote.text}"</p>
+            <div class="author">- ${quote.author}</div>
+        `;
+        quotesContainer.appendChild(quoteElement);
+    });
+}
+
+// Scroll to Top Function
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', displayQuotes);
+</script>
+</body>
+</html>
