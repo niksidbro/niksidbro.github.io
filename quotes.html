@@ -1,4 +1,143 @@
-// New Quotes Data
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes Page</title>
+	<style>
+    /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Navigation Menu */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #ffea00;
+}
+
+/* Quotes Container */
+.quotes-container {
+    max-width: 600px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.quotes-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+/* Quote Styles */
+.quote {
+    background: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.quote:hover {
+    transform: scale(1.02);
+}
+
+.author {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+    max-width: 600px;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+section p {
+    color: #555;
+}
+</style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="nav">
+        <ul>
+            <li><a href="#motivation">Motivation</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#help">Help</a></li>
+        </ul>
+    </div>
+
+    <!-- Quotes Section -->
+    <section id="motivation" class="quotes-container">
+        <h1>Inspirational Quotes</h1>
+        <div id="quotes"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About</h2>
+        <p>This page showcases a collection of inspirational quotes to uplift your spirits and motivate you to take action in your daily life.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you have any questions or suggestions, feel free to reach out via email at <a href="mailto:example@example.com">example@example.com</a>.</p>
+    </section>
+
+    <!-- Help Section -->
+    <section id="help">
+        <h2>Help</h2>
+        <p>Need help navigating the page? Use the menu to jump directly to different sections, or scroll down to explore the content.</p>
+    </section>
+
+    <script>
+	
+	// New Quotes Data
 const quotes = [
     { text: "In the end, we only regret the chances we didn’t take.", author: "Lewis Carroll" },
     { text: "What lies behind us and what lies before us are tiny matters compared to what lies within us.", author: "Ralph Waldo Emerson" },
@@ -39,3 +178,6 @@ function displayQuotes() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', displayQuotes);
+</script>
+</body>
+</html>
