@@ -3,47 +3,40 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>Who is</title>
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+	<script src="https://smashkartsonlinegames.github.io/poki-sdk.js"></script>
 	<meta name="robots" content="noindex,nofollow" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-
-	<meta name="generator" content="Scirra Construct">
-	<meta name="author" content="cemal">
-	<link rel="manifest" href="https://smashkartsonlinegames.github.io/v3/who-is/appmanifest.json">
-
-
-	<link rel="stylesheet" href="https://smashkartsonlinegames.github.io/v3/who-is/style.css">
 	<style>
-		canvas {
-			-webkit-tap-highlight-color: transparent;
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
+		body {
+			margin: 0;
+			background: #d9dddc;
+			overflow: hidden;
 		}
+
+		#adContainer {
+			position: absolute;
+			bottom: 0;
+			left: 20%;
+			transform: translateX(-50%) scale(0.70);
+		}
+
+		/* @media screen and (min-width: 1024px) {
+        #phaser-game {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+      } */
 	</style>
-
-
 </head>
 
 <body>
-
-	<script src="https://smashkartsonlinegames.github.io/poki-sdk.js"></script>
-	<noscript>
-		<div id="notSupportedWrap">
-			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
-			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
-		</div>
-	</noscript>
-	<script src="https://smashkartsonlinegames.github.io/v3/who-is/scripts/supportcheck.js"></script>
-	<script src="https://smashkartsonlinegames.github.io/v3/who-is/scripts/offlineclient.js" type="module"></script>
-	<script src="https://smashkartsonlinegames.github.io/v3/who-is/scripts/main.js" type="module"></script>
-	<script src="https://smashkartsonlinegames.github.io/v3/who-is/scripts/register-sw.js" type="module"></script>
-
+	<div style="position: absolute;opacity: 0; font-family: Montserrat;">
+		.
+	</div>
+	<div id="phaser-game"></div>
+	<div id="adContainer"></div>
+	<script type="text/javascript" src="https://smashkartsonlinegames.github.io/v4/energy/bundle.min.js"></script>
 </body>
 
 </html>
