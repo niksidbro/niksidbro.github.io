@@ -8,7 +8,7 @@ async function loadGame() {
     }
 
     try {
-        const response = await fetch("games.json"); // JSON file load karo
+        const response = await fetch("https://games-maza.pages.dev/games.json"); // JSON file load karo
         const data = await response.json();
 
         if (data[pageName]) {
