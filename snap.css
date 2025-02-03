@@ -1,23 +1,9 @@
-@keyframes dustEffect {
-    0% { opacity: 1; transform: translateX(0) translateY(0) rotate(0deg); }
-    50% { opacity: 0.5; transform: translateX(50px) translateY(-50px) rotate(30deg); }
-    100% { opacity: 0; transform: translateX(100px) translateY(-100px) rotate(60deg); }
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(2); opacity: 0; }
 }
 
-@keyframes fadeOut {
-    0% { opacity: 1; filter: blur(0px); }
-    100% { opacity: 0; filter: blur(10px); }
-}
-
-body.fade {
-    animation: fadeOut 1.5s ease-out forwards;
-}
-
-.particle {
-    position: fixed;
-    background: rgba(255, 255, 255, 0.8);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    animation: dustEffect 1.5s ease-out forwards;
+.explode {
+    animation: explode 1s ease-out forwards;
 }
