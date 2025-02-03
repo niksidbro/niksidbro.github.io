@@ -339,5 +339,30 @@
             }
         }
     </script>
+
+	<script>
+    function toggleFullscreen() {
+        const container = document.getElementById("gameContainer");
+        const iframe = document.getElementById("gameFrame");
+
+        if (!document.fullscreenElement) {
+            container.requestFullscreen();
+            iframe.style.width = "100vw";
+            iframe.style.height = "100vh";
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    // Event listener for exiting fullscreen
+    document.addEventListener("fullscreenchange", function () {
+        const iframe = document.getElementById("gameFrame");
+        if (!document.fullscreenElement) {
+            iframe.style.width = "100%";
+            iframe.style.height = "450px";
+        }
+    });
+</script>
+
 </body>
 </html>
