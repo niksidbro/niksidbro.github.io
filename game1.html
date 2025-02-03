@@ -261,7 +261,7 @@
   
    <script defer src="script.js"></script>
 </head>
-<body>
+<body onload="loadGame()">
   <header>
     <div class="website-name">GameZone</div>
     <nav class="top-navigation">
@@ -277,13 +277,13 @@
   </section>
 
   <main>
-   <h1 onload="loadGame()">Enjoy Your Game!
+   <h1 >Enjoy Your Game!</h1>
 
     <div class="game-container" id="gameContainer">
         <iframe id="gameFrame"></iframe>
         <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
     </div>
-</h1>
+
     <div class="game-details">
       <h2>Game Title: Fast Racer</h2>
       <p>
