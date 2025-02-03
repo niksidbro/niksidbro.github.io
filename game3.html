@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameZone</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #1e1e2d;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Section */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #27293d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .website-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .top-navigation a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #f5f5f5;
+      font-size: 1rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+      position: relative;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .top-navigation a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      width: 0%;
+      height: 3px;
+      background: #ffd700;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .top-navigation a:hover {
+      color: #ffd700;
+    }
+
+    .top-navigation a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Banner Ad */
+    .banner-ad {
+      background: #ff4500;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin: 1rem auto;
+      max-width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Game Section */
+    .game-container {
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 90%;
+      background: #27293d;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-iframe {
+      border: none;
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+    }
+
+    .game-details {
+      text-align: left;
+      max-width: 90%;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #2d2e4a;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-details h2 {
+      font-size: 2rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    .game-details p {
+      font-size: 1rem;
+      color: #c4c4c4;
+      line-height: 1.6;
+    }
+
+    /* Recommendations */
+    .recommendations {
+      max-width: 90%;
+      margin: 2rem auto;
+    }
+
+    .recommendations h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: #ffd700;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .game-card {
+      text-align: center;
+      background: #393b58;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .game-card p {
+      margin-top: 0.7rem;
+      font-size: 1rem;
+      color: #f5f5f5;
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+      background: #455065;
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #27293d;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #c4c4c4;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffd700;
+    }
+	 
+   
+        h1 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .game-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: white;
+            padding: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .fullscreen-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Fullscreen Mode */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen iframe {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+        }
+    </style>
+  
+  
+   <script defer src="script.js"></script>
+</head>
+<body onload="loadGame()">
+  <header>
+    <div class="website-name">GameZone</div>
+    <nav class="top-navigation">
+      <a href="#">Puzzle</a>
+      <a href="#">Racing</a>
+      <a href="#">Action</a>
+      <a href="#">Adventure</a>
+    </nav>
+  </header>
+
+  <section class="banner-ad">
+    Your Ad Here — Contact Us to Advertise!
+  </section>
+
+  <main>
+   <h1 >Enjoy Your Game!</h1>
+
+    <div class="game-container" id="gameContainer">
+        <iframe id="gameFrame"></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
+    </div>
+
+    <div class="game-details">
+      <h2>Game Title: Fast Racer</h2>
+      <p>
+        Immerse yourself in the world of speed and adventure! Fast Racer is an
+        epic racing game that tests your reflexes and rewards precision. Get
+        ready to challenge the leaderboard and become the ultimate racer!
+      </p>
+    </div>
+
+    <section class="recommendations">
+      <h3>Other Games You Might Like</h3>
+      <div class="games-grid">
+        <div class="game-card">
+          <img src="https://via.placeholder.com/150" alt="Game Logo" />
+          <p>Game Title 1</p>
+        </div>
+        <div class="game-card">
+          <img src="https://via.placeholder.com/150" alt="Game Logo" />
+          <p>Game Title 2</p>
+        </div>
+        <div class="game-card">
+          <img src="https://via.placeholder.com/150" alt="Game Logo" />
+          <p>Game Title 3</p>
+        </div>
+        <div class="game-card">
+          <img src="https://via.placeholder.com/150" alt="Game Logo" />
+          <p>Game Title 4</p>
+        </div>
+        <!-- Add more game cards as needed -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#">About</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Contact Us</a>
+  </footer>
+  <script>
+        function toggleFullscreen() {
+            const container = document.getElementById("gameContainer");
+            const iframe = document.getElementById("gameFrame");
+
+            if (!document.fullscreenElement) {
+                container.requestFullscreen();
+                iframe.style.width = "100vw";
+                iframe.style.height = "100vh";
+            } else {
+                document.exitFullscreen();
+                iframe.style.width = "100%";
+                iframe.style.height = "450px";
+            }
+        }
+    </script>
+
+	<script>
+    function toggleFullscreen() {
+        const container = document.getElementById("gameContainer");
+        const iframe = document.getElementById("gameFrame");
+
+        if (!document.fullscreenElement) {
+            container.requestFullscreen();
+            iframe.style.width = "100vw";
+            iframe.style.height = "100vh";
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    // Event listener for exiting fullscreen
+    document.addEventListener("fullscreenchange", function () {
+        const iframe = document.getElementById("gameFrame");
+        if (!document.fullscreenElement) {
+            iframe.style.width = "100%";
+            iframe.style.height = "450px";
+        }
+    });
+</script>
+
+</body>
+</html>
