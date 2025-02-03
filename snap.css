@@ -1,9 +1,8 @@
-@keyframes tornado {
-    0% { transform: rotate(0deg) translateY(0); opacity: 1; }
-    50% { transform: rotate(180deg) translateY(-50px); opacity: 0.5; }
-    100% { transform: rotate(360deg) translateY(-100px); opacity: 0; }
+@keyframes pixelate {
+    0% { filter: blur(0px); opacity: 1; }
+    100% { filter: blur(10px); opacity: 0; }
 }
 
-.tornado {
-    animation: tornado 1.2s ease-in-out forwards;
+.pixelate {
+    animation: pixelate 1s ease-out forwards;
 }
