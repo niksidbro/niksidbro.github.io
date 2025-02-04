@@ -337,52 +337,7 @@
         }
     </script>
 
-	<script>
-		document.addEventListener('keydown', function(e) {
-    // Disable F12 key (Developer Tools)
-    if (e.keyCode === 123) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-    // Disable Ctrl + Shift + I (Developer Tools)
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-    // Disable Ctrl + U (View Source)
-    if (e.ctrlKey && e.keyCode === 85) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-    // Disable Ctrl + Shift + J (Console)
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-    // Disable Ctrl + S (Save Page)
-    if (e.ctrlKey && e.keyCode === 83) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-    // Disable Ctrl + R (Reload Page)
-    if (e.ctrlKey && e.keyCode === 82) {
-        e.preventDefault();
-        window.location.href = "https://example.com";  
-    }
-});
 
-// ✅ **Detect Developer Tools Open (Using Performance Trick)**
-setInterval(function () {
-    var before = new Date().getTime();
-    debugger; // This will slow down execution if DevTools is open
-    var after = new Date().getTime();
-    
-    if (after - before > 100) { 
-        window.location.href = "https://example.com";  // Redirect when DevTools is detected
-    }
-}, 2000);  // Check every 2 seconds
-
-</script>
 	<script>
     function toggleFullscreen() {
         const container = document.getElementById("gameContainer");
