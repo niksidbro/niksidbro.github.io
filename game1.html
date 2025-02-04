@@ -338,6 +338,39 @@
     </script>
 
 	<script>
+		document.addEventListener('keydown', function(e) {
+    // Disable F12 key (Developer Tools)
+    if (e.keyCode == 123) {
+        window.location.href = "https://example.com";  // Redirect to another page
+    }
+    // Disable Ctrl + Shift + I (Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        window.location.href = "https://example.com";  // Redirect to another page
+    }
+    // Disable Ctrl + U (View Source)
+    if (e.ctrlKey && e.keyCode == 85) {
+        window.location.href = "https://example.com";  // Redirect to another page
+    }
+    // Disable Ctrl + Shift + J (Console)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        window.location.href = "https://example.com";  // Redirect to another page
+    }
+    // Disable Ctrl + S (Save Page)
+    if (e.ctrlKey && e.keyCode == 83) {
+        window.location.href = "https://example.com";  // Redirect to another page
+    }
+   
+});
+
+// Detect if Developer Tools are open and redirect
+var devtools = /./;
+devtools.toString = function () {
+    window.location.href = "https://example.com";  // Redirect to another page
+};
+
+console.log(devtools);  // Trigger the devtools detection
+</script>
+	<script>
     function toggleFullscreen() {
         const container = document.getElementById("gameContainer");
         const iframe = document.getElementById("gameFrame");
