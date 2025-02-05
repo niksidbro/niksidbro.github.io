@@ -425,6 +425,16 @@
             event.preventDefault();
         }
     });
+
+	 // Console Ko Detect Karke Website Redirect ya Close Karna
+    (function() {
+        var before = new Date().getTime();
+        debugger;
+        var after = new Date().getTime();
+        if (after - before > 100) {
+            window.location.href = "about:blank"; // Console detect hone par blank page par le jane ke liye
+        }
+    })();
 </script>
 
 </body>
