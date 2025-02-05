@@ -411,5 +411,21 @@
     });
 </script>
 <script src="snap.js"></script> <!-- JavaScript File Link -->
+<script>
+    // Right Click Disable
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+
+    // Keyboard Shortcuts Disable
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "F12" || 
+            (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) || 
+            (event.ctrlKey && event.key === "U")) {
+            event.preventDefault();
+        }
+    });
+</script>
+
 </body>
 </html>
