@@ -6,6 +6,26 @@
   <title>GameZone</title>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 	<link rel="stylesheet" href="snap.css"> <!-- CSS File Link -->
+	<script>
+    (function() {
+        function redirectToAnotherPage() {
+            window.location.href = "https://www.google.com"; // Yahan apni desired URL dalen
+        }
+
+        function detectDevTools() {
+            let before = new Date().getTime();
+            debugger;  // Debugging slow karta hai
+            let after = new Date().getTime();
+
+            if (after - before > 100) { // Agar time zyada lagta hai, toh DevTools open hai
+                redirectToAnotherPage();
+            }
+        }
+
+        setInterval(detectDevTools, 1000); // Har 1 second me check karega
+    })();
+</script>
+
   <style>
     /* General Styles */
     * {
