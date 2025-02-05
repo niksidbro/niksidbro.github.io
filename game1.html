@@ -9,22 +9,26 @@
 	<script>
     (function() {
         function redirectToAnotherPage() {
-            window.location.href = "https://www.google.com"; // Yahan apni desired URL dalen
+            window.location.href = "https://www.google.com"; // Redirect to another page
         }
 
         function detectDevTools() {
-            let before = new Date().getTime();
-            debugger;  // Debugging slow karta hai
-            let after = new Date().getTime();
+            let threshold = 160; // Console height threshold
+            let devtoolsOpen = false;
 
-            if (after - before > 100) { // Agar time zyada lagta hai, toh DevTools open hai
+            if (window.outerHeight - window.innerHeight > threshold || window.outerWidth - window.innerWidth > threshold) {
+                devtoolsOpen = true;
+            }
+
+            if (devtoolsOpen) {
                 redirectToAnotherPage();
             }
         }
 
-        setInterval(detectDevTools, 1000); // Har 1 second me check karega
+        setInterval(detectDevTools, 500); // Har 500ms me check kare
     })();
 </script>
+
 
   <style>
     /* General Styles */
