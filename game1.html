@@ -6,29 +6,7 @@
   <title>GameZone</title>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 	<link rel="stylesheet" href="snap.css"> <!-- CSS File Link -->
-	<script>
-    (function() {
-        function redirectToAnotherPage() {
-            window.location.href = "https://www.google.com"; // Redirect to another page
-        }
-
-        function detectDevTools() {
-            let threshold = 160; // Console height threshold
-            let devtoolsOpen = false;
-
-            if (window.outerHeight - window.innerHeight > threshold || window.outerWidth - window.innerWidth > threshold) {
-                devtoolsOpen = true;
-            }
-
-            if (devtoolsOpen) {
-                redirectToAnotherPage();
-            }
-        }
-
-        setInterval(detectDevTools, 500); // Har 500ms me check kare
-    })();
-</script>
-
+	
 
   <style>
     /* General Styles */
@@ -436,30 +414,42 @@
 </script>
 <script src="snap.js"></script> <!-- JavaScript File Link -->
 <script>
-    // Right Click Disable
-    document.addEventListener('contextmenu', function(event) {
-        event.preventDefault();
-    });
-
-    // Keyboard Shortcuts Disable
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "F12" || 
-            (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "J")) || 
-            (event.ctrlKey && event.key === "U")) {
-            event.preventDefault();
-        }
-    });
-
-	 // Console Ko Detect Karke Website Redirect ya Close Karna
     (function() {
-        var before = new Date().getTime();
-        debugger;
-        var after = new Date().getTime();
-        if (after - before > 100) {
-            window.location.href = "about:blank"; // Console detect hone par blank page par le jane ke liye
+        let devtoolsOpen = false;
+
+        function redirectToAnotherPage() {
+            window.location.href = "https://www.google.com"; // Redirect URL
         }
+
+        function detectDevTools() {
+            let threshold = 160;
+            
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtoolsOpen) {
+                    devtoolsOpen = true;
+                    redirectToAnotherPage();
+                }
+            } else {
+                devtoolsOpen = false;
+            }
+        }
+
+        setInterval(detectDevTools, 100); // Har 100ms me check kare
+
+        // Right Click Disable
+        document.addEventListener("contextmenu", event => event.preventDefault());
+
+        // Keyboard Shortcut Disable
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74))) {
+                redirectToAnotherPage();
+                return false;
+            }
+        };
     })();
 </script>
+
 
 </body>
 </html>
