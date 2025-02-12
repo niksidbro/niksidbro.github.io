@@ -2,7 +2,7 @@ async function loadGame() {
     // Array of encoded JSON URLs
     const encodedUrls = [
         "aHR0cHM6Ly9nYW1lcy1tYXphLnBhZ2VzLmRldi9nYW1lcy5qc29u",
-        "aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2dhbWVzLW1hemEvZ2FtZXMtbWF6YS5naXRodWIuaW8vbWFpbi9nYW1lcy5qc29u",
+        "aHR0cHM6Ly9uaWtzaWRicm8uZ2l0aHViLmlvL2dhbWUuanNvbg==",
         // Add more encoded URLs as needed
     ];
 
