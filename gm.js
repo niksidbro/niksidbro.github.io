@@ -2,7 +2,7 @@ async function loadGame() {
     // Multiple JSON URLs (Encoded format me rakhe gaye hain)
     const jsonUrls = [
         atob("https://games-maza.pages.dev/games.json"),  // JSON 1
-        atob("aHR0cHM6Ly9hbHRlcm5hdGUtZ2FtZXMucGFnZXMuZGV2L2dhbWVzLmpzb24"), // JSON 2
+        atob("https://niksidbro.github.io/games.json"), // JSON 2
         atob("aHR0cHM6Ly9iYWNrYXAtZ2FtZXMuZGV2L2dhbWVzLmpzb24") // JSON 3
     ];
 
