@@ -301,6 +301,55 @@
                 display: none;
             }
         }
+
+	  /* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: transparent;
+  color: #f5f5f5;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: #ffd700;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(39, 41, 61, 0.9); /* 90% opacity */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #f5f5f5;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #455065;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
     </style>
   
   
@@ -309,12 +358,21 @@
 <body onload="loadGame()">
   <header>
     <div class="website-name">GameZone</div>
-    <nav class="top-navigation">
-      <a href="#">Puzzle</a>
-      <a href="#">Racing</a>
-      <a href="#">Action</a>
-      <a href="#">Adventure</a>
-    </nav>
+      <nav class="top-navigation">
+    <a href="#">Puzzle</a>
+    <a href="#">Racing</a>
+    <a href="#">Action</a>
+    <a href="#">Adventure</a>
+    <div class="dropdown">
+      <button class="dropbtn">More</button>
+      <div class="dropdown-content">
+        <a href="#">Strategy</a>
+        <a href="#">Sports</a>
+        <a href="#">Arcade</a>
+        <a href="#">Puzzle</a>
+      </div>
+    </div>
+  </nav>
   </header>
 
   <section class="banner-ad">
@@ -510,7 +568,26 @@
         };
     })();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const dropbtn = document.querySelector(".dropbtn");
+  const dropdownContent = document.querySelector(".dropdown-content");
 
+  dropbtn.addEventListener("click", function () {
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
 
+  // Close the dropdown if clicked outside
+  document.addEventListener("click", function (event) {
+    if (!event.target.matches(".dropbtn")) {
+      dropdownContent.style.display = "none";
+    }
+  });
+});
+</script>
 </body>
 </html>
