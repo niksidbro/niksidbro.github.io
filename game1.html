@@ -614,22 +614,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 	<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+ document.addEventListener("DOMContentLoaded", function () {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-      window.onscroll = function () {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          scrollToTopBtn.style.display = "block";
-        } else {
-          scrollToTopBtn.style.display = "none";
-        }
-      };
+  // Jab user 20px scroll kare, tab button dikhao
+  window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrollToTopBtn.style.display = "block";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  };
 
-      scrollToTopBtn.addEventListener("click", function () {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      });
+  // Button par click karne par smooth scrolling karein
+  scrollToTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0, // Top of the page
+      behavior: "smooth", // Smooth scrolling effect
     });
+  });
+});
   </script>
 </body>
 </html>
