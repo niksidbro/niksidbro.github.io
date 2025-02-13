@@ -350,6 +350,27 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+	  #scrollToTopBtn {
+  display: none; /* Shuru mein button hidden rahega */
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* Neeche se 20px */
+  right: 20px; /* Right se 20px */
+  z-index: 99; /* Ensure it's above other elements */
+  border: none;
+  outline: none;
+  background-color: #ff4500; /* Button color */
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%; /* Round button */
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ff6600; /* Hover color */
+}
     </style>
   
   
@@ -472,7 +493,10 @@
       </div>
     </section>
   </main>
-
+	
+ <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" title="Go to top">↑</button>
+	
   <footer>
     <a href="#">About</a>
     <a href="#">Privacy Policy</a>
@@ -589,5 +613,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      };
+
+      scrollToTopBtn.addEventListener("click", function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+    });
+  </script>
 </body>
 </html>
