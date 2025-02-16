@@ -556,62 +556,7 @@
     });
 </script>
 <script src="snap.js"></script> <!-- JavaScript File Link -->
-<script>
-    (function() {
-    let devtoolsOpen = false;
-    let previousWidth = window.innerWidth;
-    let previousHeight = window.innerHeight;
 
-    function redirectToAnotherPage() {
-        window.location.href = "https://nice-try-buddy.pages.dev/"; // Redirect URL
-    }
-
-    function detectDevTools() {
-        let threshold = 160;
-
-        // Zoom detection ignore karne ke liye extra condition add kiya
-        if (
-            (window.outerHeight - window.innerHeight > threshold || 
-            window.outerWidth - window.innerWidth > threshold) &&
-            window.innerWidth === previousWidth &&  // Zoom ignore condition
-            window.innerHeight === previousHeight
-        ) {
-            if (!devtoolsOpen) {
-                devtoolsOpen = true;
-                redirectToAnotherPage();
-            }
-        } else {
-            devtoolsOpen = false;
-        }
-    }
-
-    setInterval(detectDevTools, 100); // Har 100ms me check kare
-
-    // Right Click Disable
-    document.addEventListener("contextmenu", event => event.preventDefault());
-
-    // Keyboard Shortcut Disable
-    document.onkeydown = function(e) {
-        if (
-            e.keyCode === 123 || // F12
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) // Ctrl + Shift + I/J
-        ) {
-            redirectToAnotherPage();
-            return false;
-        }
-    };
-
-    // Resize Event: Zoom Ignore karne ka extra check
-    window.addEventListener("resize", function() {
-        if (window.innerWidth !== previousWidth || window.innerHeight !== previousHeight) {
-            previousWidth = window.innerWidth;
-            previousHeight = window.innerHeight;
-        }
-    });
-
-})();
-
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const dropbtn = document.querySelector(".dropbtn");
