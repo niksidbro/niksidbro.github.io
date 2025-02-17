@@ -515,25 +515,8 @@
             height: 100
         });
     </script>
-  <script>
-        function toggleFullscreen() {
-            const container = document.getElementById("gameContainer");
-            const iframe = document.getElementById("gameFrame");
-
-            if (!document.fullscreenElement) {
-                container.requestFullscreen();
-                iframe.style.width = "100vw";
-                iframe.style.height = "100vh";
-            } else {
-                document.exitFullscreen();
-                iframe.style.width = "100%";
-                iframe.style.height = "450px";
-            }
-        }
-    </script>
-
 <!-- JavaScript File Link -->
-
+<script src="flscrn-gm.js"></script>
 <script src="if-gm.js"></script>
 <script src="snap.js"></script> 
 <script src="gm.js"></script>
