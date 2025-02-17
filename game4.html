@@ -1,246 +1,223 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameZone</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="snap.css">
-  <!-- QR Code Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <!-- Custom JS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameWorld - Play the Best Online Games</title>
+  <meta name="description" content="Play the best online games for free on GameWorld. Explore action, puzzle, racing, and adventure games.">
+  <meta name="keywords" content="online games, free games, puzzle, racing, action, adventure">
+  <meta name="author" content="GameWorld">
+  <meta property="og:title" content="GameWorld - Play the Best Online Games">
+  <meta property="og:description" content="Enjoy the most exciting online games on GameWorld. Free and fun games for everyone!">
+  <meta property="og:image" content="https://example.com/gameworld-thumbnail.jpg">
+  <meta property="og:url" content="https://example.com">
+  <link rel="icon" type="image/png" href="favicon.ico">
   <script src="/gmm.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Custom Styles */
     body {
-      font-family: "Poppins", Arial, sans-serif;
-      background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc1JUang5E9Qw1MUSxvgptZMIDu8aKBU8wt9mdYThLe_JlrgUjqE52tFL2pfhSTa8CeZEZ0RBauAOVYJpMayONTseg0INMR0Br1t_1TYhk1Ol63vU5710qzwtbUv7jXuYtqRlCWi1GmoWINU_c6iMYOnXjnXLsaciIvw5NBoShv0ose2AwPzXEy8bfsAYI/s3000/12893175_5072612.jpg') no-repeat center center/cover;
-      color: #fff;
-      scroll-behavior: smooth;
+      background-color: #121212;
+      color: #e4e4e4;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
+    #particle-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
       z-index: -1;
     }
 
-    .navbar {
-      background: rgba(39, 41, 61, 0.7);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    }
-
-    .navbar-brand, .nav-link {
-      color: #f5f5f5 !important;
-    }
-
-    .nav-link:hover {
-      color: #ffd700 !important;
-    }
-
-    .banner-ad {
-      background: #ff4500;
-      text-align: center;
-      padding: 1rem;
+    .website-name {
+      font-size: 2rem;
       font-weight: bold;
-      font-size: 1rem;
-      border-radius: 8px;
-      margin: 1rem auto;
-      max-width: 90%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      color: #ff5722;
     }
 
-    .game-container {
-      background: #27293d;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .game-iframe {
-      border: none;
+    .game-container iframe {
       width: 100%;
       height: 400px;
       border-radius: 10px;
-    }
-
-    .game-details {
-      background: rgba(39, 41, 61, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.3rem;
-    }
-
-    .game-card {
-      background: rgba(39, 41, 61, 0.0);
-      padding: 2px;
-      border-radius: 10px;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      border: 0;
     }
 
     .game-card:hover {
-      transform: translateY(-10px);
-      background: #455065;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Updated link hover effect */
+    .nav-link, footer a {
+      transition: color 0.3s ease-in-out, text-decoration 0.3s;
+    }
+
+    .nav-link:hover, footer a:hover {
+      color: #ff5722 !important;
+      text-decoration: underline;
     }
 
     .fullscreen-btn {
-      background: #ff6600;
+      margin-top: 10px;
+      background-color: #ff5722;
       color: white;
       border: none;
+      padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     .fullscreen-btn:hover {
-      background: #e65c00;
-    }
-
-    #qrcode-container {
-      position: fixed;
-      right: 10px;
-      bottom: 50%;
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-
-    #scrollToTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      background-color: #ff4500;
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      transition: background-color 0.3s ease;
-    }
-
-    #scrollToTopBtn:hover {
-      background-color: #ff6600;
-    }
-
-    @media (max-width: 768px) {
-      #qrcode-container {
-        display: none;
-      }
+      background-color: #e64a19;
     }
   </style>
 </head>
-<body onload="loadGame()">
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">GameZone</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+<body>
+  <canvas id="particle-canvas"></canvas>
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg p-3">
+    <div class="container">
+      <a class="navbar-brand website-name" href="#">GameWorld</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Puzzle</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Racing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Action</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              More ▼
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Strategy</a></li>
-              <li><a class="dropdown-item" href="#">Sports</a></li>
-              <li><a class="dropdown-item" href="#">Arcade</a></li>
-              <li><a class="dropdown-item" href="#">Puzzle</a></li>
-            </ul>
-          </li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Puzzle</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Racing</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Action</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Adventure</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Banner Ad -->
-  <div class="banner-ad">Your Ad Here — Contact Us to Advertise!</div>
+  <div class="text-center bg-danger text-white py-3">
+    Advertise your game here! Contact us for details.
+  </div>
 
-  <!-- Main Content -->
-  <main class="container">
-    <h1 class="text-center my-4">Enjoy Your Game!</h1>
-
-    <!-- Game Container -->
-    <div class="game-container">
-      <iframe id="gameFrame" class="game-iframe" sandbox="allow-scripts allow-same-origin"></iframe>
-      <button class="fullscreen-btn w-100 mt-3" onclick="toggleFullscreen()">Go Fullscreen</button>
+  <div class="container my-4 text-center">
+    <div class="game-container p-3 bg-dark rounded">
+      <iframe id="gameFrame" class="game-iframe" title="Game"></iframe>
+      <button class="fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
     </div>
-
-    <!-- QR Code -->
-    <div id="qrcode-container">
-      <div id="qrcode-text">Play on Mobile</div>
-      <div id="qrcode"></div>
-      <div id="qrcode-subtext">Scan Me</div>
+    <div class="game-details bg-secondary p-4 mt-4 rounded">
+      <h2 class="text-warning">Fast Track Racer</h2>
+      <p>Dive into the world of endless racing! Challenge your friends, conquer tracks, and unlock new levels with stunning visuals.</p>
     </div>
+  </div>
 
-    <!-- Game Details -->
-    <div class="game-details p-3 my-4">
-      <h2>Game Title: Fast Racer</h2>
-      <p>
-        Immerse yourself in the world of speed and adventure! Fast Racer is an
-        epic racing game that tests your reflexes and rewards precision. Get
-        ready to challenge the leaderboard and become the ultimate racer!
-      </p>
-    </div>
-
-    <!-- Recommendations -->
-    <section class="recommendations my-4">
-      <h3 class="text-center mb-4">Other Games You Might Like</h3>
-      <div class="games-grid">
-        <!-- Repeat game cards as needed -->
-        <div class="game-card">
-          <a href="https://niksidbro.github.io/game1.html">
-            <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" class="img-fluid">
-            <p>Game Title 1</p>
-          </a>
+  <div class="container my-5">
+    <h3 class="text-center text-warning">Other Games You Might Like</h3>
+    <div class="row row-cols-2 row-cols-md-4 g-4 mt-3">
+      <div class="col">
+        <div class="game-card text-center bg-dark p-3 rounded">
+          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 1">
+          <p class="mt-2">Game 1</p>
         </div>
-        <!-- Add more game cards here -->
       </div>
-    </section>
-  </main>
+      <div class="col">
+        <div class="game-card text-center bg-dark p-3 rounded">
+          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 2">
+          <p class="mt-2">Game 2</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="game-card text-center bg-dark p-3 rounded">
+          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 3">
+          <p class="mt-2">Game 3</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="game-card text-center bg-dark p-3 rounded">
+          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 4">
+          <p class="mt-2">Game 4</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <a href="pages/about.html" class="text-white mx-2">About</a>
-    <a href="#" class="text-white mx-2">Privacy Policy</a>
-    <a href="#" class="text-white mx-2">Terms & Conditions</a>
-    <a href="#" class="text-white mx-2">Contact Us</a>
+  <footer class="bg-dark text-center text-light py-4 mt-4">
+    <a href="#" class="text-light mx-2">About</a>
+    <a href="#" class="text-light mx-2">Terms of Use</a>
+    <a href="#" class="text-light mx-2">Privacy Policy</a>
+    <a href="#" class="text-light mx-2">Contact</a>
   </footer>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollToTopBtn" title="Go to top">↑</button>
+  <script>
+    const canvas = document.getElementById("particle-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particlesArray = [];
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 4 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width || this.x < 0) this.x = Math.random() * canvas.width;
+        if (this.y > canvas.height || this.y < 0) this.y = Math.random() * canvas.height;
+      }
+      draw() {
+        ctx.fillStyle = "rgba(255, 87, 34, 0.8)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    function initParticles() {
+      for (let i = 0; i < 100; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    initParticles();
+    animateParticles();
 
-  <!-- Bootstrap JS -->
+    function toggleFullscreen() {
+      const iframe = document.getElementById('game-iframe');
+      if (!document.fullscreenElement) {
+        if (iframe.requestFullscreen) {
+          iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+          iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+          iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+          iframe.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+          document.msExitFullscreen();
+        }
+      }
+    }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="qr-gm.js"></script>
-  <script src="test.js"></script>
-  <script src="if-gm.js"></script>
-  <script src="snap.js"></script>
-  <script src="gm.js"></script>
-  <script src="scroll2top.js"></script>
 </body>
+
 </html>
