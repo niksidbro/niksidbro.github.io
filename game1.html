@@ -556,24 +556,9 @@
         }
     });
 </script>
-<script src="snap.js"></script> <!-- JavaScript File Link -->
-
-	<script>
-		// Right-click disable karega
-document.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-
-// F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U block karega
-document.addEventListener("keydown", function (event) {
-    if (event.key === "F12" || 
-        (event.ctrlKey && event.shiftKey && event.key === "I") || 
-        (event.ctrlKey && event.shiftKey && event.key === "J") || 
-        (event.ctrlKey && event.key === "U")) {
-        event.preventDefault();
-    }
-});
-</script>
+<!-- JavaScript File Link -->
+<script src="snap.js"></script> 
+<script src="gm.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const dropbtn = document.querySelector(".dropbtn");
