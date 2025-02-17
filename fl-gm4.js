@@ -3,12 +3,14 @@ function toggleFullscreen() {
     const gameFrame = document.getElementById("gameFrame");
 
     if (document.fullscreenElement) {
-        document.exitFullscreen();
-        gameFrame.style.width = "100%";
-        gameFrame.style.height = "450px";
+        document.exitFullscreen().then(() => {
+            gameFrame.style.width = "100%";
+            gameFrame.style.height = "450px";
+        });
     } else {
-        gameContainer.requestFullscreen();
-        gameFrame.style.width = "100vw";
-        gameFrame.style.height = "100vh";
+        gameContainer.requestFullscreen().then(() => {
+            gameFrame.style.width = "100vw";
+            gameFrame.style.height = "100vh";
+        });
     }
 }
