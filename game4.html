@@ -2,176 +2,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- SEO Meta Tags -->
-    <title>Game Hub - Play Free Online Games</title>
-    <meta name="description" content="Game Hub offers a wide collection of free online games, including action, adventure, puzzles, and more. Play your favorite games instantly!">
-    <meta name="keywords" content="free games, online games, play games, arcade games, action games, puzzle games, browser games">
-    <meta name="author" content="Game Hub">
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameZone</title>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+	 <script src="/gmm.js"></script>
+	<link rel="stylesheet" href="snap.css"> <!-- CSS File Link -->
+	
 
-    <!-- Open Graph Meta Tags (For Social Media) -->
-    <meta property="og:title" content="Game Hub - Play Free Online Games">
-    <meta property="og:description" content="Enjoy a wide range of online games at Game Hub. Play the best action, arcade, and puzzle games for free.">
-    <meta property="og:image" content="https://example.com/game-hub-thumbnail.jpg">
-    <meta property="og:url" content="https://example.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Game Hub - Play Free Online Games">
-    <meta name="twitter:description" content="Explore and play a variety of online games for free at Game Hub.">
-    <meta name="twitter:image" content="https://example.com/game-hub-thumbnail.jpg">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" href="https://crazy-cars.github.io/images/favicon.png" type="image/x-icon">
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc1JUang5E9Qw1MUSxvgptZMIDu8aKBU8wt9mdYThLe_JlrgUjqE52tFL2pfhSTa8CeZEZ0RBauAOVYJpMayONTseg0INMR0Br1t_1TYhk1Ol63vU5710qzwtbUv7jXuYtqRlCWi1GmoWINU_c6iMYOnXjnXLsaciIvw5NBoShv0ose2AwPzXEy8bfsAYI/s3000/12893175_5072612.jpg') no-repeat center center/cover;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+	      /* Overlay for better readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+      z-index: -1;
+    }
 
-    <!-- Fonts & Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="/gmm.js"></script>
+    /* Header Section */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(39, 41, 61, 0.7); /* 80% opacity */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
 
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #1a1a2e;
-            color: #ffffff;
-            scroll-behavior: smooth;
+    .website-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f7f7f7;
+    }
+
+  a {
+    text-decoration: none;
+    }
+
+    .top-navigation a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #f5f5f5;
+      font-size: 1rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+      position: relative;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .top-navigation a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      width: 0%;
+      height: 3px;
+      background: #ffd700;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .top-navigation a:hover {
+      color: #ffd700;
+    }
+
+    .top-navigation a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Banner Ad */
+    .banner-ad {
+      background: #ff4500;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin: 1rem auto;
+      max-width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Game Section */
+    .game-container {
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 90%;
+      background: #27293d;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-iframe {
+      border: none;
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+    }
+
+    .game-details {
+      text-align: left;
+      max-width: 90%;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: rgba(39, 41, 61, 0.8); /* 80% opacity */
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-details h2 {
+      font-size: 1.5rem;
+      color: #f7f7f7;
+      margin-bottom: 1rem;
+    }
+
+    .game-details p {
+      font-size: 1rem;
+      color: #c4c4c4;
+      line-height: 1.6;
+    }
+
+    /* Recommendations */
+    .recommendations {
+      max-width: 90%;
+      margin: 2rem auto;
+    }
+
+    .recommendations h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: #f7f7f7;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.3rem;
+    }
+
+    .game-card {
+      text-align: center;
+      background: rgba(39, 41, 61, 0.0); /* 80% opacity */
+      padding: 2px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-card img {
+      width: 90%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .game-card p {
+      margin-top: 0.7rem;
+      font-size: 1rem;
+      color: #f5f5f5;
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+      background: #455065;
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #27293d;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #c4c4c4;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffd700;
+    }
+	 
+   
+        h1 {
+            color: #f7f7f7;
+	    text-align: center;
+            margin: 20px 0;
         }
-        .navbar {
-            background-color: #16213e !important;
+	h2 {
+            color: #f7f7f7;
         }
-        .navbar-brand {
-            font-weight: 700;
-            color: #00ff9d !important;
+	h3 {
+            color: #f7f7f7;
         }
-        .nav-link {
-            color: #ffffff !important;
+	h4 {
+            color: #f7f7f7;
         }
-        .nav-link:hover {
-            color: #00ff9d !important;
-        }
-        .btn-custom {
-            background-color: #00ff9d;
-            color: #1a1a2e;
-            font-weight: 700;
-        }
-        .btn-custom:hover {
-            background-color: #00cc7e;
-            color: #1a1a2e;
-        }
-        .game-frame {
-            border: 2px solid #00ff9d;
+
+        .game-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0px auto;
+            position: relative;
             border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            padding: 0px;
         }
-        .game-box {
-            background-color: #16213e;
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .fullscreen-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Fullscreen Mode */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            background: black;
+            display: fixed;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen iframe {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block;
+        }
+
+	 #qrcode-container {
+            position: fixed;
+            right: 10px;
+            bottom: 50%; /* Niche se distance kam kiya */
+            background: white;
+            padding: 15px;
             border-radius: 10px;
-            transition: transform 0.3s;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
-        .game-box:hover {
-            transform: translateY(-5px);
+
+        #qrcode-text {
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-        .footer {
-            background-color: #16213e;
+
+        #qrcode-subtext {
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
         }
+
+        /* Mobile devices (width <= 768px) ke liye QR code hide karna */
+        @media (max-width: 768px) {
+            #qrcode-container {
+                display: none;
+            }
+        }
+
+	  /* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: transparent;
+  color: #f5f5f5;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: #ffd700;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(39, 41, 61, 0.9); /* 90% opacity */
+  min-width: 100px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #f5f5f5;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #455065;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+	  #scrollToTopBtn {
+  display: none; /* Shuru mein button hidden rahega */
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* Neeche se 20px */
+  right: 20px; /* Right se 20px */
+  z-index: 99; /* Ensure it's above other elements */
+  border: none;
+  outline: none;
+  background-color: #ff4500; /* Button color */
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%; /* Round button */
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ff6600; /* Hover color */
+}
     </style>
+  
+  
+   
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">🎮 Game Hub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Top Games</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">New Releases</a></li>
-                </ul>
-                <button class="btn btn-custom" onclick="toggleDarkMode()">🌙 Toggle Theme</button>
-            </div>
-        </div>
-    </nav>
+<body onload="loadGame()">
+  <header>
+	<a href="/">  
+    <div class="website-name">GameZone</div></a>
+      <nav class="top-navigation">
+    <a href="#">Puzzle</a>
+    <a href="#">Racing</a>
+    <a href="#">Action</a>
+    <a href="#">Adventure</a>
+    <div class="dropdown">
+      <button class="dropbtn">More ▼</button>
+      <div class="dropdown-content">
+        <a href="#">Strategy</a>
+        <a href="#">Sports</a>
+        <a href="#">Arcade</a>
+        <a href="#">Puzzle</a>
+      </div>
+    </div>
+  </nav>
+  </header>
 
-    <div class="container my-5">
-        <div class="row mb-4">
-            <div class="col-lg-8">
-                <div class="game-container">
-                    <iframe id="gameFrame" class="game-frame w-100" frameborder="0" style="height: 500px;"></iframe>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <h2 class="mb-0">Game Title</h2>
-                        <button class="btn btn-custom" onclick="goFullscreen()">🔲 Fullscreen</button>
-                    </div>
-                    <p class="mt-3">Description of the game goes here...</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="banner-ad bg-secondary text-white d-flex align-items-center justify-content-center mb-4" style="height: 250px;">
-                    Ad Space Here
-                </div>
-                <h3 class="mb-3">Recommended Games</h3>
-                <div class="row row-cols-2 g-3">
-                    <!-- 6 Recommended Games -->
-                    <div class="col">
-                        <div class="game-box p-2 text-center">
-                            <img src="https://abinbins.github.io/thumb/stickman-bike.png" alt="Game 1" class="img-fluid rounded mb-2">
-                            <p class="mb-0">Game 1</p>
-                        </div>
-                    </div>
-                    <!-- Repeat for 5 more games -->
-                </div>
-            </div>
-        </div>
+  <section class="banner-ad">
+    Your Ad Here — Contact Us to Advertise!
+  </section>
 
-        <div class="row">
-            <div class="col-12">
-                <h3 class="mb-4">More Games</h3>
-            </div>
-        </div>
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
-            <!-- 12 More Games -->
-            <div class="col">
-                <div class="game-box p-2 text-center">
-                    <img src="https://abinbins.github.io/thumb/stickman-bike.png" alt="Game 1" class="img-fluid rounded mb-2">
-                    <p class="mb-0">Game 1</p>
-                </div>
-            </div>
-            <!-- Repeat for 11 more games -->
-        </div>
+  <main>
+   <h1>Enjoy Your Game!</h1>
+
+    <div class="game-container" id="gameContainer">
+        <iframe id="gameFrame" sandbox="allow-scripts allow-same-origin"></iframe>
+         
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
+    </div>
+<div id="qrcode-container">
+     <div id="qrcode-text">Play on Mobile</div> 
+        <div id="qrcode"></div>
+        <div id="qrcode-subtext">Scan Me</div> 
+    </div>
+    <div class="game-details">
+      <h2>Game Title: Fast Racer</h2>
+      <p>
+        Immerse yourself in the world of speed and adventure! Fast Racer is an
+        epic racing game that tests your reflexes and rewards precision. Get
+        ready to challenge the leaderboard and become the ultimate racer!
+      </p>
     </div>
 
-    <footer class="footer mt-5 py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <a href="#" class="text-white mx-2">Privacy Policy</a>
-                    <a href="#" class="text-white mx-2">Terms of Service</a>
-                    <a href="#" class="text-white mx-2">Contact Us</a>
-                </div>
-            </div>
+    <section class="recommendations">
+      <h3>Other Games You Might Like</h3>
+      <div class="games-grid">
+        <div class="game-card">
+		<a href="https://niksidbro.github.io/game1.html">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 1</p>
+		</a>
         </div>
-    </footer>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("bg-light");
-            document.body.classList.toggle("text-dark");
-        }
-
-        function goFullscreen() {
-            let iframe = document.getElementById("gameFrame");
-            if (iframe.requestFullscreen) iframe.requestFullscreen();
-            else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
-            else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-            else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
-        }
-    </script>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 2</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 3</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 4</p>
+	</div>	
+	 <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 1</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 2</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 3</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 4</p>
+	</div>
+	 <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 1</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 2</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 3</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 4</p>
+	</div>	
+	 <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 1</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 2</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 3</p>
+        </div>
+        <div class="game-card">
+          <img src="https://minibattles.github.io/imgs/the-impossible-quiz.png" alt="Game Logo" />
+          <p>Game Title 4</p>	
+        </div>
+        <!-- Add more game cards as needed -->
+      </div>
+    </section>
+  </main>
+	
+ <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" title="Go to top">↑</button>
+	
+  <footer>
+    <a href="pages/about.html">About</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Contact Us</a>
+  </footer>
+	
+<!-- JavaScript File Link -->
+<script src="qr-gm.js"></script>
+<script src="flscrn-gm.js"></script>
+<script src="if-gm.js"></script>
+<script src="snap.js"></script> 
+<script src="gm.js"></script>
+<script src="dropdown.js"></script>
+<script src="scroll2top.js"></script>
 </body>
 </html>
