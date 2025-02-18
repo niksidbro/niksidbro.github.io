@@ -1,236 +1,176 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameWorld - Play the Best Online Games</title>
-  <meta name="description" content="Play the best online games for free on GameWorld. Explore action, puzzle, racing, and adventure games.">
-  <meta name="keywords" content="online games, free games, puzzle, racing, action, adventure">
-  <meta name="author" content="GameWorld">
-  <meta property="og:title" content="GameWorld - Play the Best Online Games">
-  <meta property="og:description" content="Enjoy the most exciting online games on GameWorld. Free and fun games for everyone!">
-  <meta property="og:image" content="https://example.com/gameworld-thumbnail.jpg">
-  <meta property="og:url" content="https://example.com">
-  <link rel="icon" type="image/png" href="favicon.ico">
-  <script src="/gmm.js"></script>
-  <script src="flscrn-gm.js"></script>
-  <script src="if-gm.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #121212;
-      color: #e4e4e4;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Game Hub - Play Free Online Games</title>
+    <meta name="description" content="Game Hub offers a wide collection of free online games, including action, adventure, puzzles, and more. Play your favorite games instantly!">
+    <meta name="keywords" content="free games, online games, play games, arcade games, action games, puzzle games, browser games">
+    <meta name="author" content="Game Hub">
+    <meta name="robots" content="index, follow">
 
-  html {
-  scroll-behavior: smooth;
-    }
+    <!-- Open Graph Meta Tags (For Social Media) -->
+    <meta property="og:title" content="Game Hub - Play Free Online Games">
+    <meta property="og:description" content="Enjoy a wide range of online games at Game Hub. Play the best action, arcade, and puzzle games for free.">
+    <meta property="og:image" content="https://example.com/game-hub-thumbnail.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game Hub - Play Free Online Games">
+    <meta name="twitter:description" content="Explore and play a variety of online games for free at Game Hub.">
+    <meta name="twitter:image" content="https://example.com/game-hub-thumbnail.jpg">
 
+    <!-- Favicon -->
+    <link rel="icon" href="https://crazy-cars.github.io/images/favicon.png" type="image/x-icon">
 
-    .website-name {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ff5722;
-    }
+    <!-- Fonts & Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/gmm.js"></script>
 
-    /* Game Section */
-    .game-container {
-      text-align: center;
-      margin: 2rem auto;
-      max-width: 90%;
-      background: #27293d;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .game-iframe {
-      border: none;
-      width: 100%;
-      height: 400px;
-      border-radius: 10px;
-    }
-
-    .game-details {
-      text-align: left;
-      max-width: 90%;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background: rgba(39, 41, 61, 0.8); /* 80% opacity */
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .game-details h2 {
-      font-size: 1.5rem;
-      color: #f7f7f7;
-      margin-bottom: 1rem;
-    }
-
-    .game-details p {
-      font-size: 1rem;
-      color: #c4c4c4;
-      line-height: 1.6;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Updated link hover effect */
-    .nav-link, footer a {
-      transition: color 0.3s ease-in-out, text-decoration 0.3s;
-    }
-
-    .nav-link:hover, footer a:hover {
-      color: #ff5722 !important;
-      text-decoration: underline;
-    }
-
-  .game-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0px auto;
-            position: relative;
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #16213e !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #00ff9d !important;
+        }
+        .nav-link {
+            color: #ffffff !important;
+        }
+        .nav-link:hover {
+            color: #00ff9d !important;
+        }
+        .btn-custom {
+            background-color: #00ff9d;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+        .btn-custom:hover {
+            background-color: #00cc7e;
+            color: #1a1a2e;
+        }
+        .game-frame {
+            border: 2px solid #00ff9d;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            background: transparent;
-            padding: 0px;
         }
-
-        iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 8px;
-            transition: all 0.3s ease-in-out;
+        .game-box {
+            background-color: #16213e;
+            border-radius: 10px;
+            transition: transform 0.3s;
         }
-
-        .fullscreen-btn {
-            display: block;
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            background: #ff6600;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
+        .game-box:hover {
+            transform: translateY(-5px);
         }
-
-        .fullscreen-btn:hover {
-            background: #e65c00;
+        .footer {
+            background-color: #16213e;
         }
-
-        /* Fullscreen Mode */
-        .fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 9999;
-            background: black;
-            display: fixed;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fullscreen iframe {
-            width: 100vw;
-            height: 100vh;
-            border-radius: 0;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: block;
-        }
-  </style>
+    </style>
 </head>
-
 <body>
-  
-  <nav class="navbar navbar-dark bg-dark navbar-expand-lg p-3">
-    <div class="container">
-      <a class="navbar-brand website-name" href="#">GameWorld</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-light" href="#">Puzzle</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#">Racing</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#">Action</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#">Adventure</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="text-center bg-danger text-white py-3">
-    Advertise your game here! Contact us for details.
-  </div>
-
-  
-   <div class="game-container" id="gameContainer">
-        <iframe id="gameFrame" sandbox="allow-scripts allow-same-origin"></iframe>
-         
-        <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
-    </div>
-   <div class="game-details">
-      <h2>Game Title: Fast Racer</h2>
-      <p>
-        Immerse yourself in the world of speed and adventure! Fast Racer is an
-        epic racing game that tests your reflexes and rewards precision. Get
-        ready to challenge the leaderboard and become the ultimate racer!
-      </p>
-    </div>
-
-  <div class="container my-5">
-    <h3 class="text-center text-warning">Other Games You Might Like</h3>
-    <div class="row row-cols-2 row-cols-md-4 g-4 mt-3">
-      <div class="col">
-        <div class="game-card text-center bg-dark p-3 rounded">
-          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 1">
-          <p class="mt-2">Game 1</p>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🎮 Game Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Top Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">New Releases</a></li>
+                </ul>
+                <button class="btn btn-custom" onclick="toggleDarkMode()">🌙 Toggle Theme</button>
+            </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="game-card text-center bg-dark p-3 rounded">
-          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 2">
-          <p class="mt-2">Game 2</p>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <div class="game-container">
+                    <iframe id="gameFrame" class="game-frame w-100" src="https://example.com/game-url" frameborder="0" style="height: 500px;"></iframe>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <h2 class="mb-0">Game Title</h2>
+                        <button class="btn btn-custom" onclick="goFullscreen()">🔲 Fullscreen</button>
+                    </div>
+                    <p class="mt-3">Description of the game goes here...</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="banner-ad bg-secondary text-white d-flex align-items-center justify-content-center mb-4" style="height: 250px;">
+                    Ad Space Here
+                </div>
+                <h3 class="mb-3">Recommended Games</h3>
+                <div class="row row-cols-2 g-3">
+                    <!-- 6 Recommended Games -->
+                    <div class="col">
+                        <div class="game-box p-2 text-center">
+                            <img src="https://abinbins.github.io/thumb/stickman-bike.png" alt="Game 1" class="img-fluid rounded mb-2">
+                            <p class="mb-0">Game 1</p>
+                        </div>
+                    </div>
+                    <!-- Repeat for 5 more games -->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="game-card text-center bg-dark p-3 rounded">
-          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 3">
-          <p class="mt-2">Game 3</p>
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mb-4">More Games</h3>
+            </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="game-card text-center bg-dark p-3 rounded">
-          <img src="https://via.placeholder.com/140" class="img-fluid rounded" alt="Game 4">
-          <p class="mt-2">Game 4</p>
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+            <!-- 12 More Games -->
+            <div class="col">
+                <div class="game-box p-2 text-center">
+                    <img src="https://abinbins.github.io/thumb/stickman-bike.png" alt="Game 1" class="img-fluid rounded mb-2">
+                    <p class="mb-0">Game 1</p>
+                </div>
+            </div>
+            <!-- Repeat for 11 more games -->
         </div>
-      </div>
     </div>
-  </div>
 
-  <footer class="bg-dark text-center text-light py-4 mt-4">
-    <a href="#" class="text-light mx-2">About</a>
-    <a href="#" class="text-light mx-2">Terms of Use</a>
-    <a href="#" class="text-light mx-2">Privacy Policy</a>
-    <a href="#" class="text-light mx-2">Contact</a>
-  </footer>
+    <footer class="footer mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="#" class="text-white mx-2">Privacy Policy</a>
+                    <a href="#" class="text-white mx-2">Terms of Service</a>
+                    <a href="#" class="text-white mx-2">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("bg-light");
+            document.body.classList.toggle("text-dark");
+        }
+
+        function goFullscreen() {
+            let iframe = document.getElementById("gameFrame");
+            if (iframe.requestFullscreen) iframe.requestFullscreen();
+            else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
+            else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+            else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+        }
+    </script>
 </body>
-
 </html>
