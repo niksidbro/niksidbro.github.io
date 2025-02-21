@@ -11,6 +11,18 @@
       color: #fff;
       scroll-behavior: smooth;
     }
+
+#loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+}
 	      /* Overlay for better readability */
     body::before {
       content: "";
