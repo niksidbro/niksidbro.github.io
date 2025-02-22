@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +12,13 @@
   <meta name="robots" content="index, follow">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet"> 
-  <script src="/gmm.js"></script>
+  <script src="js/gmm.js"></script>
   <!-- CSS File Link -->
-  <link rel="stylesheet" href="/snap.css">
-  <link rel="stylesheet" href="/custom.css"> 
+  <link rel="stylesheet" href="css/snap.css">
+  <link rel="stylesheet" href="css/custom.css"> 
 	   
 </head>
-<body onload="loadGame()">
+<body onload="loadGame()" style="background: url('img/bg-img.jpg'); background-size: cover;">
   <header>
 	<a href="/">  
     <div class="website-name">GameZone</div></a>
@@ -48,6 +47,7 @@
    <h1>Enjoy Your Game!</h1>
 
     <div class="game-container" id="gameContainer">
+	    <div id="loading"><span class="loader">Loading</span></div>
         <iframe id="gameFrame" sandbox="allow-scripts allow-same-origin"></iframe>
          
         <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
@@ -137,7 +137,10 @@
         </div>
         <!-- Add more game cards as needed -->
       </div>
+
+	    
     </section>
+	  <center><a href="pages/about.html"><button  class="Btn">More Games</button></a></center>
   </main>
 	
  <!-- Scroll to Top Button -->
@@ -151,12 +154,13 @@
   </footer>
 	
 <!-- JavaScript File Link -->
-<script src="qr-gm.js"></script>
-<script src="flscrn-gm.js"></script>
-<script src="if-gm.js"></script>
-<script src="snap.js"></script> 
-<script src="gm.js"></script>
-<script src="dropdown.js"></script>
-<script src="scroll2top.js"></script>
+<script src="js/qr-gm.js"></script>
+<script src="js/flscrn-gm.js"></script>
+<script src="js/if-gm.js"></script>
+<script src="js/snap.js"></script> 
+<script src="js/gm.js"></script>
+<script src="js/dropdown.js"></script>
+<script src="js/scroll2top.js"></script>
+<script src="js/loading.js"></script>
 </body>
 </html>
